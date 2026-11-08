@@ -145,7 +145,7 @@ export const SUB_SERVICES_DATA: SubService[] = [
         answer: 'Resmi başvuru yapılmadan önce FireFix uzman mühendisleri tarafından yerinde ön keşif yapılması, tespit edilen yangın kapısı, yönlendirme levhası ve tüp eksiklerinin giderilmesi reddedilme riskini %100 ortadan kaldırır.'
       }
     ],
-    image: '/src/assets/images/firefix_service_inspection_1794114479347.jpg'
+    image: '/images/firefix_service_inspection.jpg'
   },
   {
     slug: 'itfaiye-uygunluk-raporu',
@@ -222,7 +222,7 @@ export const SUB_SERVICES_DATA: SubService[] = [
         answer: 'Evet, yönetmeliğe göre kat sirkülasyon alanlarına, asansör yanlarına ve acil çıkış kapılarına yakın yerlere asılması zorunludur.'
       }
     ],
-    image: '/src/assets/images/firefix_service_engineering_1794114479888.jpg'
+    image: '/images/firefix_service_engineering.jpg'
   },
   {
     slug: 'sondurme-ve-algilama-sistemleri-projesi',
@@ -286,7 +286,7 @@ export const SUB_SERVICES_DATA: SubService[] = [
         answer: 'Düşük tehlike sınıfında her 250 m² için 1 adet 6kg KKT tüp bulunur ve tüpler arası mesafe 25 metreyi aşamaz.'
       }
     ],
-    image: '/src/assets/images/firefix_service_equipment_1794114479091.jpg'
+    image: '/images/firefix_service_equipment.jpg'
   },
   {
     slug: 'acil-cikis-ve-yonlendirme-levhalari',

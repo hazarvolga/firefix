@@ -40,7 +40,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenQuote, onOpenAuditModa
         {/* Background Engineering Blueprint Image */}
         <div className="absolute inset-0 z-0">
           <img
-            src="/src/assets/images/hero_engineering_blueprint_1794117569949.jpg"
+            src="/images/hero_engineering_blueprint.jpg"
             alt="FireFix Yangın Güvenlik Projelendirmesi"
             className="w-full h-full object-cover object-center filter brightness-[0.38] contrast-[1.1] grayscale-[25%]"
           />

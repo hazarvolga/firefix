@@ -51,7 +51,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     category: 'ruhsat',
     shortDesc: 'İş yerinizin faaliyet alanına uygun İtfaiye Uygunluk Raporu ve ruhsat sürecinin eksiksiz hızlandırılması.',
     fullDesc: 'İş yeri açılışında en kritik bürokratik aşama olan İtfaiye Uygunluk Raporu alınması sürecinde, işletmenizi yasal risklerden ve zaman kayıplarından koruyoruz. Faaliyet alanınıza özel mevzuat gerekliliklerini önceden belirleyip denetim öncesi tüm eksikleri gideriyoruz.',
-    image: '/src/assets/images/firefix_service_inspection_1794114479347.jpg',
+    image: '/images/firefix_service_inspection.jpg',
     features: [
       'Faaliyet koluna özel yasal risk ve mevzuat analizi',
       'İtfaiye Uygunluk Raporu dosya hazırlığı ve başvuru takibi',
@@ -80,7 +80,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     category: 'proje',
     shortDesc: 'Kat planlarına uygun, acil durum kaçış merdivenleri, yönlendirme ve acil durum tahliye projeleri.',
     fullDesc: 'Mekanınızın mimari projesi üzerinde yangın yönetmeliği standartlarına tam uyumlu acil durum tahliye planları ve kaçış yönlendirme şemaları çiziyoruz. İtfaiye onay süreçlerine doğrudan uyumludur.',
-    image: '/src/assets/images/firefix_service_engineering_1794114479888.jpg',
+    image: '/images/firefix_service_engineering.jpg',
     features: [
       'AutoCAD ortamında ölçekli acil durum tahliye krokileri',
       'Kaçış merdiveni ve koridor genişlik hesabı (BYKHY)',
@@ -109,7 +109,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     category: 'kurulum',
     shortDesc: 'TSE onaylı yangın tüpleri, yangın dolapları, acil aydınlatmalar ve söndürme ekipmanları.',
     fullDesc: 'İşletmenizin tehlike sınıfına (Az, Tehlikeli, Çok Tehlikeli) uygun tip ve kg kapasitelerinde TSE belgeli yangın söndürme tüpleri, yangın dolapları ve acil durum aydınlatma armatürlerinin yerinde montajı.',
-    image: '/src/assets/images/firefix_service_equipment_1794114479091.jpg',
+    image: '/images/firefix_service_equipment.jpg',
     features: [
       '6kg KKT, CO2 ve Köpüklü TSE belgeli Yangın Tüpleri',
       'Elektrik kesintisinde 3 saat süreli Acil Aydınlatmalar',
