@@ -1,0 +1,46 @@
+# FireFix Yangın Güvenliği & Ruhsat Danışmanlığı
+
+> Sakarya ve Marmara Bölgesi'nde ticari işletmeler ve sanayi kuruluşları için yangın güvenlik danışmanlığı, itfaiye uygunluk raporu, teknik projelendirme ve TSE ekipman montajı hizmetleri.
+
+## Firma Özeti
+- **Firma Adı**: FireFix Mühendislik & Yangın Güvenlik Danışmanlığı
+- **Merkez**: Sakarya (Serdivan / Adapazarı)
+- **Hizmet Bölgesi**: Sakarya, Kocaeli (İzmit / Gebze), Düzce, Bolu, İstanbul, Bursa, Yalova, Bilecik
+- **Telefon**: 0536 217 65 35 (+90 536 217 65 35)
+- **E-posta**: info@firefix.com.tr
+- **Resmi Web Sitesi**: https://firefix.com.tr
+
+## Hizmetlerimiz
+
+### 1. Ruhsat ve Mevzuat Danışmanlığı
+- **İş Yeri Açma ve Çalışma Ruhsatı**: İş yerinizin faaliyet alanına özel İtfaiye Uygunluk Raporu dosya hazırlığı ve başvuru takibi.
+- **İtfaiye Uygunluk Raporu Ön Denetimi**: Resmi itfaiye denetçileri gelmeden önce mekanın yerinde mimari ve teknik muayenesi.
+- **Mevzuat ve Risk Analizi**: Binaların Yangından Korunması Hakkında Yönetmelik (BYKHY) çerçevesinde yasal risk tespiti.
+
+### 2. Yangın Güvenlik Projelendirmesi
+- **Tahliye ve Kaçış Projeleri**: Kat planlarına uygun acil durum kaçış merdivenleri, yönlendirme ve acil durum tahliye krokileri.
+- **Söndürme ve Algılama Sistemleri Projesi**: Otomatik sprinkler (yağmurlama), duman dedektörü, gazlı söndürme ve yangın dolabı çizimleri.
+- **İtfaiye Onay Proje Dosyası**: İlgili İtfaiye Daire Başkanlığı standartlarına uygun onaylı teknik proje dosyası hazırlığı.
+
+### 3. Kurulum ve Saha Uygulama
+- **Yangın Söndürme Tüpleri ve Ekipmanları**: TSE belgeli 6kg KKT, CO2 ve Köpüklü yangın tüplerinin doğru konumlara montajı.
+- **Acil Çıkış ve Yönlendirme Levhaları**: Fotolümenli (karanlıkta parlayan) ve 3 saat bataryalı acil durum ÇIKIŞ levhaları.
+- **Temel Algılama ve Uyarı Sistemleri**: Adresli duman/ısı dedektörleri ve siren/flaşör sistemleri montajı.
+
+## Sık Sorulan Sorular Özet
+
+### İş yeri açmak için itfaiye raporu almak zorunlu mu?
+Evet, İş Yeri Açma ve Çalışma Ruhsatı alabilmek için belediye ve il özel idare yönetmelikleri gereği yetkili İtfaiye Daire Başkanlığı'ndan onaylı İtfaiye Uygunluk Raporu alınması yasal zorunluluktur.
+
+### Süreç ortalama ne kadar sürer?
+Mekanınızın metrekaresine, faaliyet türüne ve mevcut yapısına bağlı olarak keşif, projelendirme ve ekipman montajı dahil süreç ortalama 1 ila 3 hafta içerisinde tamamlanır.
+
+## Önemli Bağlantılar
+- [Anasayfa](https://firefix.com.tr/)
+- [Hizmetlerimiz](https://firefix.com.tr/hizmetlerimiz)
+- [İş Yeri Açma ve Çalışma Ruhsatı](https://firefix.com.tr/hizmetlerimiz/is-yeri-acma-ve-calisma-ruhsati)
+- [İtfaiye Uygunluk Raporu](https://firefix.com.tr/hizmetlerimiz/itfaiye-uygunluk-raporu)
+- [Nasıl Çalışıyoruz (Süreç)](https://firefix.com.tr/surec)
+- [Sık Sorulan Sorular (SSS)](https://firefix.com.tr/sss)
+- [Blog ve Mevzuat Rehberi](https://firefix.com.tr/blog)
+- [İletişim](https://firefix.com.tr/iletisim)

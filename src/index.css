@@ -1,0 +1,92 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-paper: #F3F0E8;
+    --text-ink: #141414;
+    --border-pafta: rgba(20, 20, 20, 0.18);
+    --red-safety: #C1121F;
+    --green-escape: #1F7A4D;
+  }
+
+  body {
+    font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: var(--bg-paper);
+    color: var(--text-ink);
+    font-size: 17px;
+    line-height: 1.55;
+    letter-spacing: -0.01em;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Archivo', sans-serif;
+    letter-spacing: -0.02em;
+    font-weight: 700;
+  }
+
+  code, pre, .font-mono, .pafta-tag {
+    font-family: 'IBM Plex Mono', monospace;
+    letter-spacing: 0.04em;
+  }
+}
+
+/* Custom Utilities for Technical Blueprint Styling */
+.pafta-border {
+  border: 1px solid rgba(20, 20, 20, 0.18);
+}
+
+.pafta-border-t {
+  border-top: 1px solid rgba(20, 20, 20, 0.18);
+}
+
+.pafta-border-b {
+  border-bottom: 1px solid rgba(20, 20, 20, 0.18);
+}
+
+.pafta-border-l {
+  border-left: 1px solid rgba(20, 20, 20, 0.18);
+}
+
+.pafta-grid-lines {
+  background-image: linear-gradient(to right, rgba(20, 20, 20, 0.05) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(20, 20, 20, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Keyframe for Hero Blueprint CAD Line Draw */
+@keyframes cadDraw {
+  0% {
+    stroke-dashoffset: 1000;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes pathFlow {
+  0% {
+    stroke-dashoffset: 24;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.animate-cad-draw {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: cadDraw 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-path-flow {
+  stroke-dasharray: 8 6;
+  animation: pathFlow 1.2s linear infinite;
+}
+
+/* Disable smooth scrolling animations if reduced motion is requested */
+@media (prefers-reduced-motion: reduce) {
+  .animate-cad-draw, .animate-path-flow {
+    animation: none !important;
+    stroke-dashoffset: 0 !important;
+  }
+}

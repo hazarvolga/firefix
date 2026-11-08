@@ -1,0 +1,6 @@
+{
+  "name": "FireFix - Yangın Ruhsatı & Güvenliği Danışmanlığı",
+  "description": "Sakarya ve Marmara Bölgesi'nde işletmelere yangın güvenliği, itfaiye uygunluk raporu, yangın ruhsatı danışmanlığı ve projelendirme hizmetleri.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

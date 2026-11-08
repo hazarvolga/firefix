@@ -1,0 +1,436 @@
+# FireFix.com.tr — Yeniden Tasarım ve Geliştirme Prompt'u
+
+> Bu prompt'u Claude Code, Codex veya benzeri bir kodlama ajanına olduğu gibi yapıştırın. Köşeli parantezli `[...]` alanları göndermeden önce doldurun.
+
+---
+
+## 0. Rol ve Görev
+
+Sen kıdemli bir frontend mühendisi, teknik SEO uzmanı ve hareket (motion) tasarımcısısın. Görevin, **https://firefix.com.tr** sitesini **modern, minimal ve hızlı** bir tasarımla sıfırdan yeniden üretmek.
+
+Öncelik sırası (çatışma olursa üstteki kazanır):
+
+1. **Performans** (Core Web Vitals yeşil)
+2. **SEO + GEO** (Google'da ve yapay zekâ arama motorlarında — ChatGPT, Perplexity, Gemini, Google AI Overviews — görünürlük)
+3. **Erişilebilirlik** (WCAG 2.2 AA)
+4. **Dönüşüm** (telefon, WhatsApp, form)
+5. **Hareket ve görsel zenginlik** — GSAP, Lenis, React Bits *dengeli* kullanılacak; animasyon içeriğe hizmet eder, içeriği geciktirmez.
+
+Kod yazmaya başlamadan önce: mevcut siteyi incele, bu dokümandaki bilgi mimarisini onayla, sonra adım adım (bkz. §14) ilerle. Her adımın sonunda build + Lighthouse kontrolü yap.
+
+---
+
+## 1. Firma ve Mevcut İçerik (kaynak gerçek)
+
+**FireFix** — Sakarya merkezli yangın güvenliği mühendislik ve danışmanlık firması. Sakarya ve çevre illerdeki ticari işletmelere ve sanayi kuruluşlarına keşiften resmî onaya kadar uçtan uca hizmet verir.
+
+- **Ana başlık:** Yangın Ruhsat Danışmanlığı
+- **Slogan:** "Yasal uyumluluk, eksik tespiti ve yangın ruhsatı danışmanlığında tek elden profesyonel çözüm."
+- **Hakkımızda özü:** Bürokrasinin, karmaşık mevzuatın ve gecikmelerin işletmelere maliyetinin farkındayız. Amacımız tesisinizi gereksiz harcama yapmadan itfaiye yönetmeliğine tam uyumlu hâle getirmek. Risk analizinden resmî onaya, mimari projelendirmeden sahada ekipman kurulumuna kadar tek elden çözüm.
+
+**Hizmetler (3 ana grup, 9 alt hizmet):**
+
+| Ana hizmet | Alt hizmetler |
+|---|---|
+| Ruhsat ve Mevzuat Danışmanlığı | İş Yeri Açma ve Çalışma Ruhsatı · İtfaiye Uygunluk Raporu · Mevzuat ve Risk Analizi |
+| Yangın Güvenlik Projelendirme | Tahliye ve Kaçış Projeleri · Söndürme ve Algılama Sistemleri Projesi · İtfaiye Onay Proje Dosyası |
+| Kurulum ve Uygulama | Yangın Söndürme Tüpleri ve Ekipmanları · Acil Çıkış ve Yönlendirme Levhaları · Temel Algılama ve Uyarı Sistemleri |
+
+**Neden FireFix (4 madde):** Uzman Kadro · Hızlı Teslim · Anahtar Teslim Hizmet · Yasal Uyumluluk Garantisi
+
+**İletişim:**
+- Telefon / 7-24: **0 536 217 65 35** → `tel:+905362176535`
+- WhatsApp: `https://wa.me/905362176535`
+- E-posta: **info@firefix.com.tr**
+- Sosyal: Facebook `[URL]`, Instagram `[URL]`, LinkedIn `[URL]`
+- Adres: **`[AÇIK ADRES — yerel SEO için zorunlu]`**
+- Çalışma saatleri: `[örn. Pzt–Cmt 09:00–18:00, acil hat 7/24]`
+- Google İşletme Profili URL'si: `[URL]`
+
+> ⚠️ Mevcut sitede şablondan kalma **"929-242-6868 / ALWAYS OPEN! We work 24/7"** ifadesi var. Bu kesinlikle yeni siteye taşınmayacak. Tüm sitede tek ve tutarlı NAP (Ad-Adres-Telefon) kullanılacak.
+
+**SSS (10 soru — mevcut sitedeki cevaplar korunacak, gerekirse genişletilecek):**
+1. İş yeri açmak için itfaiye raporu zorunlu mu? → Evet; ruhsat için binanın yangın güvenliği standartlarına uygunluğu ve yetkili mercilerden uygunluk raporu gerekir.
+2. Hangi işletmeler için gerekli? → Kafe, restoran, otel, kreş, depo, imalathane, ofis ve belirli büyüklüğün üzerindeki tüm ticari alanlar.
+3. Süreç ne kadar sürer? → Alan büyüklüğü, faaliyet türü ve mevcut uyuma göre; projelendirme ve eksik giderme dahil genellikle 1–3 hafta.
+4. Söndürme tüpü vb. ekipmanları temin ediyor musunuz? → Evet; tüp, yangın dolabı, yönlendirme levhası ve aydınlatmanın tedarik ve yönetmeliğe uygun montajı anahtar teslim.
+5. Mevcut iş yerinde hangi değişiklikler gerekebilir? → Keşif sonrası belirlenir; sık eksikler: yönlendirme tabelaları, tüp konumları, duman algılama, kaçış yolu düzenlemesi.
+6. Kiralık / tadilattaki yerde süreç ne zaman başlamalı? → Tadilat ve dekorasyondan hemen önce; uygunsuz plan sonradan pahalı revizyona yol açar.
+7. Yangın tesisatı projesi için mimari proje şart mı? → Evet; mevcut mimari proje veya CAD/PDF çizim gerekir, yoksa saha ölçümüyle sıfırdan hazırlanır.
+8. Belediye yazışma ve takibini siz mi yapıyorsunuz? → Evet; başvuru, evrak takibi ve itfaiye müdürlüğü süreçlerinin tamamı.
+9. Süreçte nasıl destek veriyorsunuz? → İlk keşiften projelendirmeye, evrak takibinden ekipman temini ve nihai itfaiye denetimine kadar.
+10. Ücretler nasıl belirleniyor? → Metrekare, faaliyetin tehlike sınıfı ve mevcut eksikliklere göre; ön inceleme sonrası net teklif.
+
+**Blog (3 yazı — her biri gerçek, ayrı URL'li makale olacak, min. 900–1500 kelime):**
+1. İş Yeriniz Yangın Yönetmeliğine Uygun mu? Zorunlu Kriterler Nelerdir?
+2. İş Yeri Açma ve Çalışma Ruhsatı Alırken En Sık Yapılan 5 Hata
+3. Projeden Sahaya: Anahtar Teslim Yangın Güvenliği ve Ruhsat Danışmanlığı Neden Önemlidir?
+
+> Mevcut sitede hizmet kartları ve blog "Devamını oku" linkleri `#`'e gidiyor. Yeni sitede **hiçbir ölü link olmayacak**; her hizmet ve her yazı kendi indekslenebilir sayfasına sahip olacak.
+
+**İçerik kuralı:** Sertifika, referans, müşteri yorumu, istatistik veya proje sayısı **uydurma**. Bunlar için bileşen yerleri hazırla ama veri yoksa render etme (`[VERİ GELİNCE AÇ]`). Sahte yorum/rakam yerine gerçek, doğrulanabilir bilgiyi kullan.
+
+---
+
+## 2. Teknoloji Yığını
+
+| Katman | Seçim | Gerekçe |
+|---|---|---|
+| Framework | **Astro 5** (statik çıktı, `output: 'static'`) + **React 19 islands** | Varsayılan sıfır JS; React Bits bileşenleri yalnızca gereken yerde hydrate edilir. En iyi LCP/INP. |
+| Stil | **Tailwind CSS v4** + CSS değişkenleriyle design token'lar | Küçük CSS, tutarlı sistem |
+| Animasyon | **GSAP 3** (+ `ScrollTrigger`, `SplitText`) ve React adaları içinde `@gsap/react` → `useGSAP` | Zamanlama, timeline, scroll tetikleme |
+| Kaydırma | **Lenis** (`lenis` paketi) | Yumuşak kaydırma, ScrollTrigger ile senkron |
+| Hazır hareketli bileşenler | **React Bits** (reactbits.dev — kopyala/yapıştır veya shadcn/jsrepo CLI ile, *TS + Tailwind* varyantları) | Seçici ve bütçeli kullanım (§5.3) |
+| İçerik | Astro **Content Collections** (Markdown/MDX, Zod şema) — hizmetler, blog, SSS | Tek kaynak; schema ve sitemap buradan üretilir |
+| Görseller | `astro:assets` → AVIF/WebP, `srcset`, açık `width/height` | CLS = 0, küçük boyut |
+| Font | Kendi sunucunda barındırılan değişken font (örn. **Inter** veya **Geist** / başlık için **Manrope**), `latin-ext` alt kümesi (Türkçe karakterler!), `font-display: swap`, kritik font `preload` | Harici istek yok |
+| Form | Astro endpoint / serverless function (Cloudflare Pages Functions veya Netlify/Vercel) + **Cloudflare Turnstile** + honeypot | Spam koruması, JS'siz de çalışır |
+| Hosting | **Cloudflare Pages** (alternatif: Vercel/Netlify) | Edge CDN, ücretsiz SSL, HTTP/3 |
+| Analitik | Çerez gerektirmeyen (Plausible / Umami / Cloudflare Web Analytics) **veya** GA4 + KVKK onay banner'ı | KVKK uyumu |
+| Kalite | TypeScript strict, ESLint, Prettier, Lighthouse CI, `@astrojs/check` | |
+
+> Next.js tercih edilirse: App Router + tamamen statik (`generateStaticParams`), animasyonlu her şey `'use client'` küçük adalarda, `next/font`, `next/image`, `app/sitemap.ts`, `app/robots.ts`. Aynı bütçeler geçerli.
+
+---
+
+## 3. Bilgi Mimarisi ve URL Yapısı
+
+Türkçe, küçük harf, tireli, sondaki slash tutarlı (öneri: slash'sız). Eski URL'ler 301 ile korunacak.
+
+```
+/                                          Anasayfa
+/hakkimizda                                Hakkımızda
+/hizmetlerimiz                             Hizmetler hub sayfası
+  /hizmetlerimiz/ruhsat-ve-mevzuat-danismanligi
+    /hizmetlerimiz/is-yeri-acma-ve-calisma-ruhsati
+    /hizmetlerimiz/itfaiye-uygunluk-raporu
+    /hizmetlerimiz/mevzuat-ve-risk-analizi
+  /hizmetlerimiz/yangin-guvenlik-projelendirme
+    /hizmetlerimiz/tahliye-ve-kacis-projeleri
+    /hizmetlerimiz/sondurme-ve-algilama-sistemleri-projesi
+    /hizmetlerimiz/itfaiye-onay-proje-dosyasi
+  /hizmetlerimiz/kurulum-ve-uygulama
+    /hizmetlerimiz/yangin-sondurme-tupleri-ve-ekipmanlari
+    /hizmetlerimiz/acil-cikis-ve-yonlendirme-levhalari
+    /hizmetlerimiz/algilama-ve-uyari-sistemleri
+/surec                                     "Nasıl Çalışıyoruz" — keşiften onaya 5 adım
+/sektorler                                 (opsiyonel) Kafe-restoran, otel, kreş, depo, imalathane, ofis
+/hizmet-bolgeleri/sakarya                  Yerel SEO sayfası (ilçeler + çevre iller)
+/sss                                       SSS
+/blog                                      Blog listesi
+  /blog/is-yeri-yangin-yonetmeligi-zorunlu-kriterler
+  /blog/is-yeri-ruhsati-en-sik-yapilan-5-hata
+  /blog/anahtar-teslim-yangin-guvenligi-ve-ruhsat-danismanligi
+/iletisim                                  İletişim + harita + form
+/kvkk                                      KVKK Aydınlatma Metni
+/cerez-politikasi                          Çerez Politikası
+/404                                       Özel 404 (arama + popüler linkler)
+```
+
+**301 yönlendirmeleri:** `/sss/` → `/sss`, `/blog/` → `/blog`, eski WordPress yazı/kategori URL'leri `[varsa listele]` → yeni karşılıkları. `www` → apex (veya tersi), `http` → `https`.
+
+**Menü:** Hizmetler (mega menü: 3 sütun × 3 alt hizmet) · Süreç · Hakkımızda · Bilgi (SSS, Blog) · İletişim · **[Ücretsiz Keşif İste]** birincil buton.
+
+**Her alt hizmet sayfasının şablonu:**
+1. H1 + 40–60 kelimelik **doğrudan cevap paragrafı** ("X nedir, kime gerekir, FireFix ne yapar")
+2. Kimler için gerekli (sektör listesi)
+3. Süreç adımları (numaralı liste — HowTo mantığında)
+4. Gerekli belgeler (madde listesi)
+5. Süre ve fiyatı etkileyen faktörler (rakam uydurma; aralık varsa `[VERİ]`)
+6. İlgili mevzuat (ör. *Binaların Yangından Korunması Hakkında Yönetmelik* — doğru madde atfı `[uzman onayı]`)
+7. Hizmete özel 3–5 SSS
+8. İlgili hizmetler (iç link) + CTA bandı
+9. "Son güncelleme" tarihi ve yazar/uzman bilgisi (E-E-A-T)
+
+Her sayfa en az **500–800 kelime özgün** içerik taşır; ince/kopya sayfa üretme. Bölge sayfası tek ve özgün olacak — ilçe başına kopya "doorway" sayfa üretme.
+
+---
+
+## 4. Tasarım Sistemi — Modern Minimal
+
+**Ton:** Güven veren, mühendislik hassasiyetinde, sakin. "Yangın" temasını alev klişesiyle değil, **disiplinli bir kırmızı aksan** ve bol beyaz alanla ver.
+
+**Renk token'ları** (light + dark, kontrast AA doğrulanmış):
+```css
+:root {
+  --bg: #FAFAF9;        --surface: #FFFFFF;     --ink: #0C0C0D;
+  --ink-muted: #5B5B60; --line: #E7E5E4;
+  --accent: #D7261E;    /* yangın kırmızısı — yalnızca CTA, vurgu, ikon */
+  --accent-ink: #FFFFFF;
+  --signal: #F59E0B;    /* çok seyrek: uyarı/rozet */
+  --safe: #15803D;      /* "uyumlu" durum göstergesi */
+}
+[data-theme="dark"] {
+  --bg: #0B0B0C; --surface: #141416; --ink: #F4F4F5;
+  --ink-muted: #A1A1AA; --line: #27272A; --accent: #EF4444;
+}
+```
+Kırmızı yüzey alanının **%5'ini geçmesin**. Gradient, glassmorphism, neon yok.
+
+**Tipografi:** Akışkan ölçek `clamp()` ile. H1 `clamp(2.5rem, 6vw, 5rem)`, sıkı satır aralığı (1.05), negatif letter-spacing (-0.02em). Gövde 17–18px, satır 1.6, satır uzunluğu max 68ch.
+
+**Grid ve boşluk:** 12 kolon, max-width 1240px, 8px taban ritim (8/16/24/40/64/104/168). Bölümler arası en az 104px (mobilde 64px).
+
+**Bileşenler:** Header (scroll'da küçülen, şeffaftan opaka), mega menü, buton (primary/secondary/ghost), hizmet kartı, süreç adımı, SSS akordiyonu (`<details>` tabanlı — JS'siz çalışır), CTA bandı, iletişim formu, footer (NAP + harita linki + sosyal + yasal), mobilde **yapışkan alt çubuk** (Ara · WhatsApp · Teklif).
+
+**Görsel dil:** Gerçek saha fotoğrafları `[firma sağlayacak]`; yoksa ince çizgili teknik illüstrasyonlar / kat planı çizgisi motifleri (SVG, inline, <5 KB). Stok "itfaiyeci" fotoğrafı kullanma. İkon seti: Lucide (tree-shake edilmiş, yalnızca kullanılan ikonlar).
+
+**Anasayfa akışı:**
+1. **Hero** — H1 "Yangın Ruhsat Danışmanlığı", slogan, iki CTA (Ücretsiz Keşif · WhatsApp), sağda ince çizgili kat planı SVG'si; çizgiler GSAP ile kendini çizer (stroke-dashoffset). **H1 ve slogan animasyonsuz da ilk karede görünür** (LCP öğesi).
+2. **Güven şeridi** — 7/24 destek · Sakarya ve çevre iller · Anahtar teslim · `[gerçek rakam varsa CountUp]`
+3. **3 ana hizmet** — büyük kartlar, hover'da hafif spot ışığı
+4. **Süreç** — 5 adım (Keşif → Eksik Tespiti & Risk Analizi → Projelendirme → Uygulama & Ekipman → İtfaiye Onayı). Masaüstünde yatay pinlenmiş scroll, mobilde dikey liste.
+5. **Neden FireFix** — 4 madde, minimal ikonlu grid
+6. **Sektörler** — chip/etiket bulutu
+7. **SSS önizleme** — 4–5 soru + "Tümü" linki
+8. **Blog** — son 3 yazı
+9. **CTA bandı** — "İşletmeniz denetime hazır mı? Ücretsiz ön keşif için arayın."
+10. **Footer**
+
+---
+
+## 5. Hareket (Motion) Sistemi
+
+### 5.1 Genel ilkeler
+- Süreler: mikro 150–250ms, bölüm girişleri 500–800ms, hiçbir şey 1.2s'yi geçmez.
+- Easing: `power3.out` (giriş), `power2.inOut` (geçiş). Tüm projede 2–3 easing'den fazlası yok.
+- Yalnızca `transform` ve `opacity` animasyonu. `width/height/top/left/filter: blur` (büyük alanlarda) yasak.
+- Her bölüm en fazla **bir** ana hareket fikri taşır. Aynı anda ekranda en fazla 1 sürekli animasyon.
+- **`prefers-reduced-motion: reduce`** → Lenis devre dışı, ScrollTrigger animasyonları son karede başlar, React Bits bileşenleri statik varyanta düşer. `gsap.matchMedia()` ile yönet.
+- İçerik **JS olmadan görünür** olmalı. Gizleme (`opacity:0`) yalnızca JS yüklendiğinde eklenen bir sınıf (`html.js`) altında yapılır → SEO botları ve JS'siz kullanıcılar tam içeriği görür, FOUC olmaz.
+- Hero'da LCP öğesini (H1) geciktiren giriş animasyonu yok. Gerekirse sadece ikincil öğeler (CTA, SVG) animasyonlu girer.
+
+### 5.2 GSAP + Lenis entegrasyonu
+Tek bir global `motion.ts` modülü, `requestIdleCallback` / ilk etkileşim sonrası dinamik `import()` ile yüklenir:
+
+```ts
+import Lenis from 'lenis';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger);
+
+const mq = gsap.matchMedia();
+mq.add('(prefers-reduced-motion: no-preference)', () => {
+  const lenis = new Lenis({ duration: 1.1, smoothWheel: true });
+  lenis.on('scroll', ScrollTrigger.update);
+  const raf = (t: number) => lenis.raf(t * 1000);
+  gsap.ticker.add(raf);
+  gsap.ticker.lagSmoothing(0);
+  // anchor linkleri: lenis.scrollTo(target, { offset: -headerHeight })
+  return () => { gsap.ticker.remove(raf); lenis.destroy(); };
+});
+```
+- Lenis dokunmatik cihazlarda varsayılan native scroll kullanır (`syncTouch: false`); mobilde scroll-jacking yok.
+- Modal/mega menü açıkken `lenis.stop()`, kapanınca `lenis.start()`.
+- Astro View Transitions kullanılırsa `astro:page-load` / `astro:before-swap` olaylarında ScrollTrigger'ları `kill()` ve yeniden kur; bellek sızıntısı olmasın.
+- React adalarında `useGSAP(() => {...}, { scope: ref })` kullan — otomatik cleanup.
+- Sayfa geçişleri: View Transitions API ile 250ms yumuşak fade/slide; desteklenmeyen tarayıcıda normal geçiş.
+
+### 5.3 React Bits — dengeli kullanım bütçesi
+**Kural:** Sayfa başına en fazla **3 React Bits bileşeni**, toplam ek JS (gzip) ≤ **25 KB**. WebGL/Three.js/OGL tabanlı arka planlar (Aurora, Silk, Particles, Galaxy, Iridescence vb.) **kullanılmayacak**.
+
+| Bileşen | Nerede | Hydration |
+|---|---|---|
+| `SplitText` veya `BlurText` | Bölüm başlıklarında (hero H1 **hariç**) | `client:visible` |
+| `CountUp` | Güven şeridi — **yalnızca gerçek rakamlar varsa** | `client:visible` |
+| `SpotlightCard` | 3 ana hizmet kartı | `client:visible` |
+| `AnimatedContent` / `FadeContent` | Liste/grid girişleri (GSAP ile aynı işi yapıyorsa GSAP tercih) | `client:visible` |
+| `Magnet` | Yalnızca birincil CTA butonu, masaüstü (`client:media="(hover:hover)"`) | `client:media` |
+| `ShinyText` | En fazla bir rozet/etiket | `client:visible` |
+
+- Bileşenleri kopyaladıktan sonra: TypeScript'e uyarla, kullanılmayan prop'ları temizle, `prefers-reduced-motion` kontrolü ekle, metni **DOM'da gerçek metin** olarak tut (SplitText `aria-label` ile tam cümleyi korusun, harf span'leri `aria-hidden`).
+- Bir efekti 10 satır GSAP/CSS ile yapabiliyorsan React Bits ekleme.
+- `client:load` yalnızca mobil menü ve form gibi zorunlu etkileşimlerde.
+
+---
+
+## 6. Performans Bütçesi (kabul kriteri)
+
+| Metrik (mobil, 4G throttled, Lighthouse + gerçek cihaz) | Hedef |
+|---|---|
+| Lighthouse Performance / SEO / Best Practices / Accessibility | **≥ 95 / 100 / 100 / 100** |
+| LCP | **< 1.8s** |
+| INP | **< 150ms** |
+| CLS | **< 0.05** (hedef 0) |
+| TBT | < 150ms |
+| İlk yükte JS (gzip, anasayfa) | **≤ 90 KB** (GSAP+ScrollTrigger+Lenis dahil) |
+| CSS (gzip) | ≤ 25 KB, kritik CSS inline |
+| Hero görseli | ≤ 80 KB AVIF, `fetchpriority="high"`, preload |
+| Toplam sayfa ağırlığı | ≤ 600 KB |
+| Font dosyaları | ≤ 2 dosya, toplam ≤ 80 KB |
+
+Teknikler: Astro islands, GSAP'ı dinamik import, `loading="lazy"` + `decoding="async"` (ekran altı görseller), harici script yok (harita için tıklanınca yüklenen statik görsel/"facade"), Google Maps iframe'i ilk yüklemede yok, `content-visibility: auto` uzun bölümlerde, Brotli, uzun önbellek başlıkları (`immutable` hash'li varlıklar), `<link rel="preconnect">` yalnızca gerçekten gerekenlere. Üçüncü taraf widget (canlı sohbet vb.) varsa etkileşim sonrası yükle.
+
+---
+
+## 7. Teknik SEO
+
+**Her sayfada:**
+- Benzersiz `<title>` (50–60 karakter; şablon: `{Sayfa} | Sakarya | FireFix`) ve `<meta name="description">` (140–160 karakter, net fayda + bölge)
+- Tek H1, mantıklı H2/H3 hiyerarşisi
+- `<link rel="canonical">` (mutlak URL)
+- `<html lang="tr">`, `og:locale` = `tr_TR`
+- Open Graph + Twitter Card (1200×630 OG görseli — her sayfa için build-time otomatik üretim, örn. Satori/`@vercel/og` veya astro-og-canvas)
+- `meta robots` → varsayılan `index,follow`; KVKK/çerez/404 → `noindex`
+- Breadcrumb (görsel + schema)
+- Açıklayıcı Türkçe `alt` metinleri, anlamlı link metinleri ("buraya tıklayın" yok)
+- Favicon seti + `site.webmanifest` + `theme-color`
+
+**Site geneli:**
+- **`sitemap.xml`** — `@astrojs/sitemap` ile otomatik; `sitemap-index.xml` + alt sitemap'ler; `noindex` sayfalar hariç; her URL'de `<lastmod>` (içerik dosyasının gerçek güncellenme tarihi, build tarihi değil). Görsel sitemap girdileri (blog kapak görselleri) eklenebilir.
+- **`robots.txt`** — `Sitemap: https://firefix.com.tr/sitemap-index.xml`, gereksiz engel yok; AI tarayıcılarına (GPTBot, OAI-SearchBot, ChatGPT-User, PerplexityBot, ClaudeBot, Claude-SearchBot, Google-Extended, Applebot-Extended) **izin ver** (GEO için).
+- **RSS** — `/rss.xml` (blog)
+- Temiz 404, yönlendirme zinciri yok, karışık içerik yok, HSTS.
+- Google Search Console + Bing Webmaster Tools doğrulama meta etiketi yerleri `[KOD]`. Yayın sonrası sitemap gönderimi + **IndexNow** (Bing/Yandex) entegrasyonu.
+
+**Anahtar kelime haritası (her sayfa bir ana niyet):**
+- Anasayfa → *yangın ruhsat danışmanlığı sakarya*, *itfaiye raporu sakarya*
+- İş yeri ruhsatı → *iş yeri açma ve çalışma ruhsatı itfaiye raporu*, *işyeri ruhsatı nasıl alınır*
+- İtfaiye uygunluk raporu → *itfaiye uygunluk raporu nasıl alınır*, *itfaiye raporu için gerekenler*
+- Projelendirme → *yangın projesi çizimi*, *tahliye planı*, *yangın tesisat projesi sakarya*
+- Ekipman → *yangın söndürme tüpü montajı sakarya*, *acil çıkış levhası*
+- Bölge sayfası → Adapazarı, Serdivan, Erenler, Arifiye, Hendek, Akyazı, Sapanca, Karasu, Geyve vb. ilçeler + Kocaeli, Düzce, Bolu, Bilecik (`[gerçekte hizmet verilen iller onaylansın]`)
+
+**İç linkleme:** Hub → alt hizmet → ilgili blog → SSS → iletişim döngüsü. Her blog yazısı en az 2 hizmet sayfasına, her hizmet sayfası en az 1 blog yazısına bağlansın.
+
+---
+
+## 8. Yapılandırılmış Veri (JSON-LD)
+
+Tüm şemalar içerik koleksiyonlarından üretilsin, elle kopyalanmasın. Rich Results Test + Schema.org Validator'dan **hatasız** geçmeli.
+
+- **Site geneli (`@graph`):**
+  - `Organization` + `ProfessionalService` (veya `LocalBusiness` alt tipi) — `@id: https://firefix.com.tr/#org`, `name`, `url`, `logo`, `image`, `telephone: +905362176535`, `email`, `address` (PostalAddress `[ADRES]`), `geo` `[enlem/boylam]`, `areaServed` (Sakarya + ilçeler + çevre iller, `AdministrativeArea`), `openingHoursSpecification`, `sameAs` (sosyal profiller + Google İşletme), `contactPoint` (7/24, `contactType: "customer service"`, `availableLanguage: "tr"`), `knowsAbout` (yangın güvenliği, itfaiye uygunluk raporu, Binaların Yangından Korunması Hakkında Yönetmelik…)
+  - `WebSite` (`@id: #website`, `inLanguage: tr-TR`, `publisher: #org`)
+- **Her sayfa:** `WebPage` + `BreadcrumbList`
+- **Hizmet sayfaları:** `Service` (`serviceType`, `provider: #org`, `areaServed`, `description`, `hasOfferCatalog` hub sayfada)
+- **SSS sayfası ve hizmet SSS blokları:** `FAQPage` (görünen metinle birebir aynı)
+- **Süreç sayfası:** `HowTo` mantıklı adımlarla (zengin sonuç garantisi yok ama AI motorları için yararlı)
+- **Blog:** `BlogPosting` (`headline`, `datePublished`, `dateModified`, `author` → `Person` `[uzman adı, unvanı, mühendis bilgisi]`, `publisher: #org`, `image`, `mainEntityOfPage`)
+- **Hakkımızda:** `AboutPage`, ekip varsa `Person` kartları
+- **İletişim:** `ContactPage`
+
+Sahte `aggregateRating`/`review` **ekleme**.
+
+---
+
+## 9. GEO — Yapay Zekâ Arama Motoru Optimizasyonu
+
+Amaç: ChatGPT, Perplexity, Gemini, Copilot ve Google AI Overviews "Sakarya'da itfaiye raporu nasıl alınır?" gibi sorulara cevap verirken FireFix'i **kaynak olarak alıntılasın**.
+
+1. **Cevap-önce yazım:** Her sayfa ve her H2 bölümü, soruyu doğrudan yanıtlayan 1–2 cümlelik özet paragrafla başlar. Ardından detay.
+2. **Soru biçimli başlıklar:** "İtfaiye uygunluk raporu ne kadar sürede çıkar?" gibi gerçek arama sorgularını H2/H3 olarak kullan.
+3. **Çıkarılabilir yapılar:** Numaralı adımlar, madde listeleri, karşılaştırma tabloları, "Gerekli belgeler" kutuları, tanım blokları (`<dl>`). AI motorları bunları kolay alıntılar.
+4. **Varlık (entity) netliği:** Firma adı, şehir, hizmet adları ve mevzuat adları tutarlı yazılsın. Her sayfada en az bir kez "FireFix, Sakarya merkezli yangın güvenliği danışmanlık firmasıdır…" kalıbında net bir kimlik cümlesi.
+5. **Kaynak ve güven sinyalleri (E-E-A-T):** Mevzuata resmî kaynak linkleri (mevzuat.gov.tr vb.), yazar kutusu (ad, unvan, uzmanlık, `[oda sicil/sertifika varsa]`), "Son güncelleme" tarihi, gerçek saha fotoğrafları.
+6. **`/llms.txt`** (ve isteğe bağlı `/llms-full.txt`) — firma özeti, hizmet listesi, önemli sayfaların Markdown linkleri, iletişim bilgisi. Build'de içerik koleksiyonlarından otomatik üret.
+7. **Sunucu tarafında tam HTML:** Tüm içerik statik HTML'de; hiçbir metin yalnızca JS ile oluşmasın (AI tarayıcılarının çoğu JS çalıştırmaz). Akordiyon cevapları da DOM'da bulunsun (`<details>`).
+8. **Tutarlı NAP** web sitesi, Google İşletme Profili, sosyal profiller ve dizinlerde birebir aynı.
+9. **Özgün, kendi bilgisi olan içerik:** Sahadan örnekler, sık görülen eksik listeleri, kontrol listeleri (ör. indirilebilir "İşyeri Yangın Güvenliği Ön Kontrol Listesi" PDF/HTML). Genel AI dolgu metni yazma.
+
+---
+
+## 10. Erişilebilirlik (WCAG 2.2 AA)
+
+- Renk kontrastı ≥ 4.5:1 (metin), ≥ 3:1 (büyük metin/arayüz)
+- Görünür odak halkası (`:focus-visible`, kırmızı değil yüksek kontrastlı)
+- "İçeriğe atla" linki, landmark'lar (`header/nav/main/footer`)
+- Klavye ile tam gezinilebilir mega menü (Esc kapatır, ok tuşları)
+- Dokunma hedefleri ≥ 44×44px
+- Form: görünür `<label>`, hata mesajları `aria-live`, zorunlu alan işaretleri
+- Animasyonlu metinlerde ekran okuyucu tam metni okur; hareket azaltma tercihine uyulur
+- axe-core ile 0 kritik hata
+
+---
+
+## 11. İletişim Formu ve Dönüşüm
+
+- Alanlar: Ad Soyad*, Telefon*, E-posta, İşletme türü (select), İlçe/İl, Mesaj, **KVKK onay kutusu*** (Aydınlatma Metni linkli).
+- Honeypot + Cloudflare Turnstile + sunucu tarafı doğrulama + oran sınırlama.
+- Gönderim: e-posta (Resend/Postmark veya SMTP `[sağlayıcı]`) → info@firefix.com.tr. JS kapalıyken de normal POST ile çalışır; JS varken sayfa yenilemeden başarı durumu.
+- Dönüşüm olayları: `tel:` tıklama, WhatsApp tıklama, form gönderimi → analitik olay olarak ölçülsün.
+- Mobil yapışkan alt çubuk; masaüstünde header'da telefon numarası görünür.
+- WhatsApp linkinde ön doldurulmuş mesaj: `?text=Merhaba, itfaiye raporu / ruhsat danışmanlığı için bilgi almak istiyorum.`
+
+---
+
+## 12. Güvenlik ve Yasal
+
+- HTTP başlıkları: `Content-Security-Policy` (inline script yok ya da nonce/hash), `Strict-Transport-Security`, `X-Content-Type-Options: nosniff`, `Referrer-Policy: strict-origin-when-cross-origin`, `Permissions-Policy`, `frame-ancestors 'none'`.
+- KVKK Aydınlatma Metni ve Çerez Politikası sayfaları `[metin firma/hukukçu tarafından onaylanacak]`.
+- Analitik çerez kullanıyorsa onay alınmadan yüklenmez.
+- Bağımlılıklar güncel, `npm audit` temiz.
+
+---
+
+## 13. Proje Yapısı (öneri)
+
+```
+src/
+  content/
+    services/*.md       # frontmatter: title, slug, parent, summary, keywords, faqs[], related[], updated
+    blog/*.mdx          # title, description, date, updated, author, cover, tags
+    faq/*.md
+    config.ts           # Zod şemaları
+  components/
+    astro/              # statik bileşenler (Header, Footer, Card, Breadcrumb, Faq, CTA, Seo, JsonLd)
+    react/              # sadece etkileşimli adalar (MobileMenu, ContactForm)
+    reactbits/          # seçilmiş, uyarlanmış React Bits bileşenleri
+  lib/
+    motion.ts           # GSAP + Lenis kurulumu, matchMedia, reduced-motion
+    schema.ts           # JSON-LD üreticileri
+    seo.ts              # title/description/canonical yardımcıları
+    site.ts             # NAP, sosyal linkler — TEK KAYNAK
+  layouts/BaseLayout.astro
+  pages/ ... (bkz. §3)
+  pages/llms.txt.ts, pages/rss.xml.ts, pages/og/[...slug].png.ts
+public/robots.txt, public/_headers, public/_redirects
+```
+
+---
+
+## 14. Çalışma Adımları
+
+1. **Analiz:** Mevcut siteyi tara, tüm URL'leri ve içeriği çıkar, eski URL → yeni URL yönlendirme tablosunu hazırla. Eksik bilgileri (`[...]` alanları) listele ve sor.
+2. **Kurulum:** Astro + React + Tailwind v4 + TypeScript strict, ESLint/Prettier, `site.ts` NAP kaynağı, design token'lar, fontlar.
+3. **İçerik modeli:** Content Collections şemaları; 12 hizmet, 10 SSS, 3 blog yazısı içerik dosyaları (mevcut metinleri genişleterek, uydurma veri olmadan).
+4. **Layout ve statik bileşenler:** Header, mega menü, footer, breadcrumb, SEO/JSON-LD bileşenleri — **animasyonsuz** hâlde tamamla, Lighthouse ≥ 98 doğrula.
+5. **Sayfalar:** Anasayfa → hizmet hub/detay → süreç → hakkımızda → SSS → blog → iletişim → yasal → 404.
+6. **SEO altyapısı:** sitemap, robots, RSS, llms.txt, OG görselleri, redirect'ler, schema doğrulama.
+7. **Hareket katmanı:** `motion.ts` (GSAP + Lenis), bölüm animasyonları, React Bits bileşenleri (§5.3 bütçesi). Her ekleme sonrası bundle boyutu ve INP kontrolü.
+8. **Form ve dönüşüm:** endpoint, Turnstile, e-posta, analitik olaylar.
+9. **Kalite kapısı:** Lighthouse CI (mobil + masaüstü), axe, Rich Results Test, ölü link taraması, reduced-motion testi, JS kapalı test, gerçek iPhone/Android testi, Türkçe karakter kontrolü (ı, İ, ş, ğ, ç, ö, ü).
+10. **Yayın:** Cloudflare Pages, alan adı + HTTPS + başlıklar, Search Console/Bing'e sitemap gönderimi, IndexNow, Google İşletme Profili'nde site linkini güncelleme.
+
+---
+
+## 15. Kabul Kriterleri (Definition of Done)
+
+- [ ] §6'daki tüm performans hedefleri mobilde sağlanıyor
+- [ ] Lighthouse SEO 100, Accessibility 100, Best Practices 100
+- [ ] Tüm sayfalarda benzersiz title/description/canonical/OG
+- [ ] `sitemap-index.xml`, `robots.txt`, `rss.xml`, `llms.txt` erişilebilir ve doğru
+- [ ] JSON-LD tüm sayfalarda hatasız; sahte puan/yorum yok
+- [ ] Hiç `#` veya ölü link yok; eski URL'ler 301 ile yönleniyor
+- [ ] Şablondan kalan "929-242-6868 / ALWAYS OPEN" gibi metinler yok; NAP her yerde aynı
+- [ ] JS kapalıyken tüm içerik okunabiliyor, form gönderilebiliyor
+- [ ] `prefers-reduced-motion` açıkken Lenis ve scroll animasyonları kapalı
+- [ ] Sayfa başına ≤ 3 React Bits bileşeni, WebGL arka plan yok
+- [ ] Mobilde yatay kaydırma yok, dokunma hedefleri ≥ 44px
+- [ ] KVKK ve çerez sayfaları mevcut, form onay kutusu çalışıyor
+- [ ] README: kurulum, içerik ekleme (yeni hizmet/blog nasıl eklenir), deploy talimatı
+
+---
+
+## 16. Doldurulacak Bilgiler (göndermeden önce)
+
+- [ ] Açık adres + harita koordinatı
+- [ ] Çalışma saatleri
+- [ ] Sosyal medya ve Google İşletme Profili linkleri
+- [ ] Logo (SVG) ve marka rengi tercihi (varsa)
+- [ ] Gerçek saha/ekip fotoğrafları
+- [ ] Hizmet verilen il/ilçe listesinin onayı
+- [ ] Uzman/yazar adı, unvanı, varsa yetki belgeleri
+- [ ] Gerçek rakamlar (tamamlanan proje, yıl deneyimi) — yoksa bu bölümler gizli kalır
+- [ ] Form e-posta sağlayıcısı ve hosting tercihi
+- [ ] Eski sitede korunması gereken başka URL'ler

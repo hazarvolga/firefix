@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FireFix — Visual Compare: Before vs After (Teknik Pafta)</title>
+  <style>
+    body {
+      font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: #141414;
+      color: #F3F0E8;
+      margin: 0;
+      padding: 24px;
+    }
+    h1 {
+      font-family: 'Archivo', sans-serif;
+      font-size: 28px;
+      margin-bottom: 8px;
+      color: #F3F0E8;
+    }
+    p {
+      color: #a1a1aa;
+      font-size: 14px;
+      margin-bottom: 32px;
+    }
+    .section {
+      margin-bottom: 48px;
+      border-bottom: 1px solid rgba(243, 240, 232, 0.15);
+      padding-bottom: 32px;
+    }
+    .section-title {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 14px;
+      color: #C1121F;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 16px;
+    }
+    .compare-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .card {
+      background: #1a1a1a;
+      border: 1px solid rgba(243, 240, 232, 0.15);
+      padding: 16px;
+    }
+    .card-header {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      font-weight: bold;
+      margin-bottom: 12px;
+      color: #F3F0E8;
+    }
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border: 1px solid rgba(243, 240, 232, 0.1);
+    }
+  </style>
+</head>
+<body>
+  <h1>FireFix — Sanat Yönetimi Karşılaştırması (Before vs After)</h1>
+  <p>Jenerik AI Slop tasarımından İsviçre Tipografisi ve ISO 7010 standartlarındaki "Teknik Pafta" tasarımına geçiş karşılaştırması.</p>
+
+  <!-- Homepage Desktop -->
+  <div class="section">
+    <div class="section-title">01 / ANASAYFA (MASAÜSTÜ 1440px)</div>
+    <div class="compare-grid">
+      <div class="card">
+        <div class="card-header">ÖNCE (BEFORE SLOP)</div>
+        <img src="before/desktop-home.png" alt="Before Desktop Home" />
+      </div>
+      <div class="card">
+        <div class="card-header">SONRA (AFTER PAFTA)</div>
+        <img src="after/desktop-home.png" alt="After Desktop Home" />
+      </div>
+    </div>
+  </div>
+
+  <!-- Homepage Mobile -->
+  <div class="section">
+    <div class="section-title">02 / ANASAYFA (MOBİL 390px)</div>
+    <div class="compare-grid">
+      <div class="card">
+        <div class="card-header">ÖNCE (BEFORE SLOP)</div>
+        <img src="before/mobile-home.png" alt="Before Mobile Home" />
+      </div>
+      <div class="card">
+        <div class="card-header">SONRA (AFTER PAFTA)</div>
+        <img src="after/mobile-home.png" alt="After Mobile Home" />
+      </div>
+    </div>
+  </div>
+
+  <!-- Service Detail Desktop -->
+  <div class="section">
+    <div class="section-title">03 / HİZMET DETAY (MASAÜSTÜ 1440px)</div>
+    <div class="compare-grid">
+      <div class="card">
+        <div class="card-header">ÖNCE (BEFORE SLOP)</div>
+        <img src="before/desktop-service.png" alt="Before Desktop Service" />
+      </div>
+      <div class="card">
+        <div class="card-header">SONRA (AFTER PAFTA)</div>
+        <img src="after/desktop-service.png" alt="After Desktop Service" />
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ Desktop -->
+  <div class="section">
+    <div class="section-title">04 / SIKÇA SORULAN SORULAR (MASAÜSTÜ 1440px)</div>
+    <div class="compare-grid">
+      <div class="card">
+        <div class="card-header">ÖNCE (BEFORE SLOP)</div>
+        <img src="before/desktop-faq.png" alt="Before Desktop FAQ" />
+      </div>
+      <div class="card">
+        <div class="card-header">SONRA (AFTER PAFTA)</div>
+        <img src="after/desktop-faq.png" alt="After Desktop FAQ" />
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact Desktop -->
+  <div class="section">
+    <div class="section-title">05 / İLETİŞİM (MASAÜSTÜ 1440px)</div>
+    <div class="compare-grid">
+      <div class="card">
+        <div class="card-header">ÖNCE (BEFORE SLOP)</div>
+        <img src="before/desktop-contact.png" alt="Before Contact" />
+      </div>
+      <div class="card">
+        <div class="card-header">SONRA (AFTER PAFTA)</div>
+        <img src="after/desktop-contact.png" alt="After Contact" />
+      </div>
+    </div>
+  </div>
+</body>
+</html>
